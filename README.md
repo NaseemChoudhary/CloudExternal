@@ -447,15 +447,15 @@ CMD ["nginx", "-g", "daemon off;"]
 Replace `YOUR_USERNAME` with your Docker Hub username.
 
 ```bash
-docker build -t YOUR_USERNAME/my-web-app:v1.0 .
-docker images
+sudo docker build -t YOUR_USERNAME/my-web-app:v1.0 .
+sudo docker images
 ```
 
 ### Step 4: Run the Container
 
 ```bash
-docker run -d -p 8080:80 --name my-running-app YOUR_USERNAME/my-web-app:v1.0
-docker ps
+sudo docker run -d -p 8080:80 --name my-running-app YOUR_USERNAME/my-web-app:v1.0
+sudo docker ps
 ```
 
 Open `http://localhost:8080` in your browser.
@@ -463,8 +463,8 @@ Open `http://localhost:8080` in your browser.
 ### Step 5: Push the Image to Docker Hub
 
 ```bash
-docker login
-docker push YOUR_USERNAME/my-web-app:v1.0
+sudo docker login
+sudo docker push YOUR_USERNAME/my-web-app:v1.0
 ```
 
 ## 3. Pull and Run ownCloud
@@ -472,26 +472,26 @@ docker push YOUR_USERNAME/my-web-app:v1.0
 ### Step 1: Pull the Image
 
 ```bash
-docker pull owncloud/server
-docker images
+sudo docker pull owncloud/server
+sudo docker images
 ```
 
 ### Step 2: Run ownCloud
 
 ```bash
-docker run -d -p 8080:8080 --name my-owncloud owncloud/server
+sudo docker run -d -p 8080:8080 --name my-owncloud owncloud/server
 ```
 
 If port 8080 is already occupied by your custom web app, stop that container first:
 
 ```bash
-docker stop my-running-app
+sudo docker stop my-running-app
 ```
 
 ### Step 3: Verify the Container
 
 ```bash
-docker ps
+sudo docker ps
 docker logs my-owncloud
 ```
 
